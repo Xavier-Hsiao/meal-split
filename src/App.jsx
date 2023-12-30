@@ -1,4 +1,3 @@
-import { useState } from "react";
 import FriendList from "./component/FriendList/FriendList";
 import styles from "./App.module.scss";
 
@@ -26,9 +25,7 @@ const initialFriends = [
 function App() {
   return (
     <div className={styles.app}>
-      <div className={styles.sidebar}>
-        <FriendList />
-      </div>
+      <FriendList initialFriends={initialFriends} />
     </div>
   );
 }

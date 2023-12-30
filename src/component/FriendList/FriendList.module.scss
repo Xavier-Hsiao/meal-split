@@ -1,0 +1,10 @@
+.sidebar {
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    list-style: none;
+  }
+}

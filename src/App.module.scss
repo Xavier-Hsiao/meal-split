@@ -14,7 +14,6 @@ html {
 
 // Body
 body {
-  height: 100vh;
   color: #495057;
   display: flex;
   align-items: center;
@@ -24,10 +23,16 @@ body {
 // App
 .app {
   display: grid;
-  grid-template-columns: 34rem 44rem;
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 4rem;
   align-items: start;
-  min-height: 66vh;
+  padding: 30px;
+  width: 100%;
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr; // Change to a single column for smaller screens
+    padding: 10px; // Adjust padding for smaller screens
+  }
 }
 
 .left {
@@ -36,6 +41,10 @@ body {
 
   button {
     align-self: end;
+  }
+
+  @media screen and (max-width: 900px) {
+    margin-bottom: 20px;
   }
 }
 

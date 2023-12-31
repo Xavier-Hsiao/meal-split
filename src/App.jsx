@@ -3,6 +3,7 @@ import FriendAddForm from "./component/FriendAddForm/FriendAddForm";
 import Button from "./component/Button/Button";
 import FormSplitBill from "./component/FormSplitBill/FormSplitBill";
 import styles from "./App.module.scss";
+import { useState } from "react";
 
 const initialFriends = [
   {
@@ -26,12 +27,21 @@ const initialFriends = [
 ];
 
 function App() {
+  // Define state variable of addFriendForm visibility, boolean value
+  const [showAddFriend, setShowAddFriend] = useState(false);
+  // Define event handler
+  function handleShowAddFriend() {
+    setShowAddFriend((form) => !form);
+  }
+
   return (
     <div className={styles.app}>
       <div className={styles.left}>
         <FriendList initialFriends={initialFriends} />
-        <FriendAddForm />
-        <Button>Add friend</Button>
+        {showAddFriend && <FriendAddForm />}
+        <Button onShowAddFriend={handleShowAddFriend}>
+          {showAddFriend ? "Close" : "Add friend"}
+        </Button>
       </div>
       <div className={styles.right}>
         <FormSplitBill />

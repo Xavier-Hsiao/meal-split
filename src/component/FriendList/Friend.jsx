@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import styles from "./Friend.module.scss";
 import utils from "../../style/utils.module.scss";
+import Button from "../Button/Button";
 
 export default function Friend({ friend }) {
   return (
@@ -20,7 +21,7 @@ export default function Friend({ friend }) {
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
 
-      <button className={utils.button}>Select</button>
+      <Button>Select</Button>
     </li>
   );
 }

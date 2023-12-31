@@ -1,4 +1,7 @@
 import FriendList from "./component/FriendList/FriendList";
+import FriendAddForm from "./component/FriendAddForm/FriendAddForm";
+import Button from "./component/Button/Button";
+import FormSplitBill from "./component/FormSplitBill/FormSplitBill";
 import styles from "./App.module.scss";
 
 const initialFriends = [
@@ -25,7 +28,14 @@ const initialFriends = [
 function App() {
   return (
     <div className={styles.app}>
-      <FriendList initialFriends={initialFriends} />
+      <div className={styles.left}>
+        <FriendList initialFriends={initialFriends} />
+        <FriendAddForm />
+        <Button>Add friend</Button>
+      </div>
+      <div className={styles.right}>
+        <FormSplitBill />
+      </div>
     </div>
   );
 }

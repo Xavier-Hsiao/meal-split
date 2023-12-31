@@ -1,3 +1,5 @@
+@use "./style/color.module.scss";
+
 // Reset
 * {
   margin: 0;
@@ -26,4 +28,59 @@ body {
   column-gap: 4rem;
   align-items: start;
   min-height: 66vh;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    align-self: end;
+  }
+}
+
+// Form
+form {
+  display: grid;
+  gap: 1.2rem;
+  align-items: center;
+  background-color: color.$lightest;
+  border-radius: 7px;
+
+  button {
+    margin-top: 0.6rem;
+    grid-column: 2;
+  }
+
+  h2 {
+    grid-column: 1 / -1;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin-bottom: 1.6rem;
+  }
+}
+
+label {
+  font-weight: 500;
+}
+
+label::first-letter {
+  display: inline-block;
+  margin-right: 4px;
+  font-size: 1.8rem;
+}
+
+input,
+select {
+  font-size: 1.5rem;
+  padding: 0.7rem;
+  text-align: center;
+  border: 1px solid var(--color-light);
+  border-radius: 4px;
+
+  &:focus {
+    outline: none;
+    border: 1px solid color.$dark;
+  }
 }

@@ -1,10 +1,18 @@
+@use "../../style/color.module.scss";
+
 li {
   display: grid;
   // The second column takes up the remaining available space and the third column adjusts its size based on its content.
   grid-template-columns: 4.8rem 1fr auto;
   column-gap: 1.6rem;
   align-items: center;
-  padding: 1.2rem;
+  padding: 1.2rem 0 1.2rem 1.2rem;
+  border-radius: 10px;
+
+  &.selected,
+  &:hover {
+    background-color: #{color.$lightest};
+  }
 
   img {
     width: 100%;

@@ -3,10 +3,19 @@ import styles from "./Friend.module.scss";
 import utils from "../../style/utils.module.scss";
 import Button from "../Button/Button";
 
-export default function Friend({ friend }) {
+export default function Friend({ friend, onSelection, selectedFriend }) {
+  // To check whether this friend is selected
+  const isSelected = selectedFriend?.id === friend.id;
+
   return (
-    <li>
-      <img src={friend.image} alt={friend.name} />
+    <li className={isSelected ? `${styles.selected}` : ""}>
+      <img
+        src={friend.image}
+        alt={friend.name}
+        onClick={() => {
+          onSelection(friend);
+        }}
+      />
       <h3>{friend.name}</h3>
       {/* Conditional rendering for balance text and color */}
       {friend.balance < 0 && (
@@ -21,7 +30,9 @@ export default function Friend({ friend }) {
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
 
-      <Button>Select</Button>
+      <Button onSelection={onSelection} friend={friend}>
+        {isSelected ? "Close" : "Select"}
+      </Button>
     </li>
   );
 }

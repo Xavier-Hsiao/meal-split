@@ -1,8 +1,30 @@
-# React + Vite
+# 🥞 Meal Split 👛
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About this project
+Trying to figure out how much you owe your friends or how much you cover after a great meal? Don't bother anymore! Use *Meal Split* to keep track of it. Securing your wallet and friendship at the same time is no less than easy. 
 
-Currently, two official plugins are available:
+## Features
+- Users can add a new friend to the list
+- Users can see how much they owe a friend, and vice versa
+- Users can update how much they owe a friend on split bill form, and vice versa
+- Split bill from will validates user input, preventing users paying more than bill requires. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## State management
+
+The `friends` and `selectedFriend`state is defined in the `App` component instead of `FriendList` or `Friend`component. This decision is related to the requirement of data sharing .
+
+The benefits of _lifting up state_ are:
+
+1. **Single source of truth:** The state in the parent component (`App`) serves as a single source of truth for the open item index, centralizing the data of friends of  and ensures that all child components have access to the same state value.
+
+2. **Consistency and synchronization:**
+   Sharing the same state instead of having its own state allows child components to coordinate.
+
+3. **Ease of control:**
+   By placing the state in the parent component, the parent can implement additional logic if needed, all management in one place.
+
+4. **Efficiency:**
+   Changing state at higher levels in the component tree can lead to optimized re-rendering in React.
+
+## Screenshot
+![screenshot](https://github.com/Xavier-Hsiao/accordion-component/blob/master/public/meal-split-using.png)
